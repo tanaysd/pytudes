@@ -127,10 +127,18 @@ def test():
 
 ################ System test ################
 
+import os
 import time
 
 def solve_all(grids, name=''):
-    """Attempt to solve a sequence of grids. Report results."""
+    """Attempt to solve a sequence of grids. Report results.
+
+    `grids` may be an iterable of puzzle strings or a path to a file
+    containing one puzzle per line.
+    """
+    if isinstance(grids, (str, bytes, os.PathLike)):
+        with open(grids) as f:
+            grids = f.readlines()
     times, results = zip(*[time_solve(grid) for grid in grids])
     N = len(results)
     if N > 1:
@@ -138,9 +146,9 @@ def solve_all(grids, name=''):
             sum(results), N, name, sum(times)/N, N/sum(times), max(times)))
             
 def time_solve(grid):
-    start = time.clock()
+    start = time.perf_counter()
     values = solve(grid)
-    t = time.clock()-start
+    t = time.perf_counter() - start
     return (t, solved(values))
 
 def solved(values):
@@ -154,8 +162,21 @@ grid2  = '4.....8.5.3..........7......2.....6.....8.4......1.......6.3.7.5..2...
 hard1  = '.....6....59.....82....8....45........3........6..3.54...325..6..................'
     
 if __name__ == '__main__':
+    import argparse
+
+    parser = argparse.ArgumentParser(description='Solve Sudoku puzzles')
+    parser.add_argument('--grid', help='Puzzle string of 81 characters')
+    parser.add_argument('--file', help='Path to file containing puzzles')
+    args = parser.parse_args()
+
     test()
-    solve_all(open("sudoku-easy50.txt"), "easy")
-    solve_all(open("sudoku-top95.txt"), "hard")
-    solve_all(open("sudoku-hardest.txt"), "hardest")
+
+    if args.grid:
+        display(solve(args.grid))
+    elif args.file:
+        solve_all(args.file, name=args.file)
+    else:
+        solve_all('sudoku-easy50.txt', 'easy')
+        solve_all('sudoku-top95.txt', 'hard')
+        solve_all('sudoku-hardest.txt', 'hardest')
     

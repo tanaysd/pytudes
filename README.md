@@ -184,6 +184,20 @@ For each notebook you can hover on the title to see a description, or click the 
 |[testaccum.py](/py/testaccum.py)|*Tests for my failed Python `accumulation display` proposal*|[documentation](http://norvig.com/pyacc.html)|
 |[yaptu.py](/py/yaptu.py)|*Yet Another Python Templating Utility*||
 
+# Sudoku command-line usage
+
+Run a single puzzle:
+
+```bash
+python py/sudoku.py --grid "<81-char puzzle>"
+```
+
+Or solve a file of puzzles:
+
+```bash
+python py/sudoku.py --file py/sudoku-easy50.txt
+```
+
 # Etudes for Programmers
 I got the idea for the *"etudes"* part of the name from
 this [1978 book](https://books.google.com/books/about/Etudes_for_programmers.html?id=u89WAAAAMAAJ)
