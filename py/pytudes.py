@@ -54,6 +54,7 @@ notebooks = {
 ('Four 4s, Five 5s, and Countdowns', 2020, 'Countdown.ipynb', 'Solving the equation 10 _ 9 _ 8 _ 7 _ 6 _ 5 _ 4 _ 3 _ 2 _ 1 = 2016. Originally from an Alex Bellos puzzle'),
 ('How to Count Things', 2020, 'How%20To%20Count%20Things.ipynb', 'Combinatorial math: how to count how many things there are, when there are a lot of them'),
 ('KenKen (Sudoku-like Puzzle)', 2021, 'KenKen.ipynb', 'A Sudoku-like puzzle, but with arithmetic.'),
+('Kakuro (Sudoku-like Puzzle)', 2024, 'Kakuro.ipynb', 'Fill-in-the-grid puzzle with sum constraints'),
 ('Number Bracelets Game', 2024, 'NumberBracelets.ipynb', 'A game involving numbered beads on a circular bracelet.'),
 ('Pairing Socks', 2019, 'Socks.ipynb', 'What is the probability that you will be able to pair up socks as you randomly pull them out of the dryer?'),
 ('Sicherman Dice', 2018, 'Sicherman%20Dice.ipynb', 'Find a pair of dice that is like a regular pair of dice, only different'),
@@ -130,6 +131,7 @@ python_files = [
 ('SET.py',     'Analyze the card game SET', 'http://norvig.com/SET.html'),
 ('spell.py',   'Spelling corrector', 'http://norvig.com/spell-correct.html'),
 ('sudoku.py',  'Program to solve sudoku puzzles', 'http://norvig.com/sudoku.html'),
+('kakuro.py',  'Program to solve kakuro puzzles'),
 ('testaccum.py', 'Tests for my failed Python `accumulation display` proposal', 'http://norvig.com/pyacc.html'),
 ('yaptu.py',   'Yet Another Python Templating Utility'),
 ]   
